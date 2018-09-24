@@ -25,4 +25,14 @@ class MowerSuite extends FunSuite with Matchers {
     mower.execute(Seq(FORWARD, FORWARD, RIGHT, FORWARD, FORWARD, RIGHT, FORWARD, RIGHT, RIGHT, FORWARD))
     mower.display should equal ("5 1 E")
   }
+
+  test("Read mower") {
+    val mower = Mower.read(5, 5, "1 2 N")
+    mower.display should equal("1 2 N")
+  }
+
+  test("Read mower 2") {
+    val mower = Mower.read(5, 5, "3 3 E")
+    mower.display should equal("3 3 E")
+  }
 }

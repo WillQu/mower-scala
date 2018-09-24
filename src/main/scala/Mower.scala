@@ -9,3 +9,10 @@ class Mower(private var position: LawnPosition) {
     position = (position /: values) (_.next(_))
   }
 }
+
+object Mower {
+  def read(limitX: Int, limitY: Int, string: String): Mower = {
+    val splittedString = string.replace('\n', ' ').split(' ')
+    new Mower(LawnPosition(limitX.toInt, limitY, splittedString(0).toInt, splittedString(1).toInt, Direction.withName(splittedString(2))))
+  }
+}
