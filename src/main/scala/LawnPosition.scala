@@ -1,8 +1,15 @@
 /**
-  * A position in a lawn
+  * A position in a lawn (coordinates + direction).
+  *
+  * Note: limitX and limitY are currently ignored.
   */
 case class LawnPosition(limitX: Int, limitY: Int, x: Int, y: Int, direction: Direction.Value) {
 
+  /**
+    * Compute the next position after executing the specified command.
+    * @param command the command to execute.
+    * @return the position after executing the command.
+    */
   def next(command: Command.Value): LawnPosition = {
     command match {
       case Command.LEFT => copy(direction = Direction.leftOf(direction))
@@ -20,5 +27,9 @@ case class LawnPosition(limitX: Int, limitY: Int, x: Int, y: Int, direction: Dir
     }
   }
 
+  /**
+    *
+    * @return display this position in the required format.
+    */
   def display: String = x + " " + y + " " + direction
 }

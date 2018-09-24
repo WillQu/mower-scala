@@ -7,6 +7,10 @@ object Direction extends Enumeration {
   val SOUTH = Value("S")
   val WEST = Value("O")
 
+  /**
+    * @param direction the starting direction.
+    * @return the resulting direction when turning 90° left.
+    */
   def leftOf(direction: Direction.Value): Direction.Value = {
     direction match {
       case NORTH => WEST
@@ -16,6 +20,10 @@ object Direction extends Enumeration {
     }
   }
 
+  /**
+    * @param direction the starting direction.
+    * @return the resulting direction when turning 90° right.
+    */
   def rightOf(direction: Direction.Value): Direction.Value = {
     direction match {
       case NORTH => EAST
